@@ -3,6 +3,9 @@ inspired by [quick-scope](https://github.com/unblevable/quick-scope).
 
 Highlight `f-char` not only current row, around row
 ![around-demo.gif](./around-demo.gif)
+
+After `H` `M` `L` `5 row move`, target char must be highlighted.
+![usage.gif](./usage.gif)
 with [vim-anchor5](https://github.com/serna37/vim-anchor5), [clever-f](https://github.com/rhysd/clever-f.vim)
 
 # installation
