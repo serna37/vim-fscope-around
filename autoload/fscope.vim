@@ -109,6 +109,15 @@ fu! s:fmode.takeover() abort
     cal Func()
 endf
 
+fu! fscope#activate() abort
+    cal s:fmode.activate()
+endf
+fu! fscope#deactivate() abort
+    cal s:fmode.deactivate()
+endf
+fu! fscope#toggle() abort
+    cal s:fmode.toggle()
+endf
 fu! fscope#(bang, ...) abort
     if a:bang
         if a:0 == 0
