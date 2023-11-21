@@ -82,6 +82,7 @@ fu! s:fmode.set() abort
 endf
 
 fu! s:fmode.activate() abort
+    let self.flg = 1
     aug f_scope
         au!
         au CursorMoved * cal s:fmode.set()
@@ -90,6 +91,7 @@ fu! s:fmode.activate() abort
 endf
 
 fu! s:fmode.deactivate() abort
+    let self.flg = 0
     aug f_scope
         au!
     aug End
@@ -101,7 +103,6 @@ endf
 fu! s:fmode.toggle() abort
     let Func = self.flg ? self.deactivate : self.activate
     cal Func()
-    let self.flg = !self.flg
 endf
 
 fu! s:fmode.takeover() abort
@@ -134,6 +135,7 @@ fu! fscope#(bang, ...) abort
     cal s:fmode.activate()
 endf
 
-if get(g:, 'fscope_init_active', 1)
+let ini = get(g:, 'fscope_init_active', 1)
+if ini
     cal s:fmode.activate()
 endif
