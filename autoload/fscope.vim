@@ -135,7 +135,3 @@ fu! fscope#(bang, ...) abort
     cal s:fmode.activate()
 endf
 
-let ini = get(g:, 'fscope_init_active', 1)
-if ini
-    cal s:fmode.activate()
-endif
