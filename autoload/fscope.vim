@@ -11,7 +11,7 @@ if execute('sil! hi FScopeCurrentRowPrimary') =~ 'E411'
 endif
 
 
-let s:fmode = #{flg: 1}
+let s:fmode = #{flg: 0}
 
 fu! s:fmode.scope(current_row, col, row_no, row_txt) abort
 
