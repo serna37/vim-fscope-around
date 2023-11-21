@@ -109,14 +109,20 @@ fu! s:fmode.takeover() abort
     cal Func()
 endf
 
-fu! fscope#activate() abort
+fu! fscope#(bang, ...) abort
+    if a:bang
+        if a:0 == 0
+            cal s:fmode.deactivate()
+            retu
+        elseif a:0 == 1
+            if a:1 ==# '!'
+                cal s:fmode.toggle()
+                retu
+            endif
+        endif
+        retu
+    endif
     cal s:fmode.activate()
-endf
-fu! fscope#deactivate() abort
-    cal s:fmode.deactivate()
-endf
-fu! fscope#toggle() abort
-    cal s:fmode.toggle()
 endf
 
 if get(g:, 'fscope_init_active', 1)
