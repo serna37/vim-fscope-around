@@ -1,4 +1,9 @@
 # vim-fscope-around
+inspired by [quick-scope](https://github.com/unblevable/quick-scope).
+
+Highlight `f-char` not only current row, around row
+![around-demo.gif](./around-demo.gif)
+with [vim-anchor5](https://github.com/serna37/vim-anchor5), [clever-f](https://github.com/rhysd/clever-f.vim)
 
 # installation
 ```vim
@@ -14,11 +19,11 @@ nnoremap <silent><Leader><Leader>fs <Plug>(fscope-around-toggle)
 
 " commands
 " active
-FScope
+:FScope
 " deactive
-FScope!
+:FScope!
 " toggle
-FScope!!
+:FScope!!
 ```
 
 # custom
@@ -31,4 +36,5 @@ let g:fscope_around_row = 5
 " active on start vim (default 1)
 let g:fscope_init_active = 1
 ```
-
+# license
+[MIT](./LICENSE)
