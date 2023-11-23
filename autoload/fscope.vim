@@ -28,20 +28,24 @@ fu! s:fmode.scope(current_row, col, row_no, row_txt) abort
         let offset = matchstrpos(r_txt, '.\>', offset)[2]
         let track = start_ch[1] >= col_no ? r_txt[col_no:start_ch[1]-1] : r_txt[start_ch[2]+1:col_no]
 
-        " leading char is unique from cursor pos
-        if start_ch[0] =~ '[0-9A-Za-z]' && stridx(track, start_ch[0]) == -1
-            cal add(cs_f, [row_no, start_ch[2]])
-            continue
-        endif
-
-        " from next char to last char
-        for idx in range(start_ch[1], offset - 1)
+        " from leadgin char to last char
+        let unique_ch = -1
+        for idx in range(start_ch[1] - 1, offset - 1)
+            " unique from cursor pos
             let char = r_txt[idx]
-            if char =~ '[0-9A-Za-z]'
-                cal add(stridx(track, char) == -1 ? cs_f : cs_f2, [row_no, idx + 1])
+            if char =~ '[0-9A-Za-z]' && stridx(track, char) == -1
+                let unique_ch = idx
                 break
             endif
         endfor
+
+        if unique_ch != -1
+            " from leadgin char to last char
+            cal add(cs_f, [row_no, unique_ch + 1])
+        else
+            " secondary color on leading char
+            cal add(cs_f2, [row_no, start_ch[2]])
+        endif
 
     endwhile
 
