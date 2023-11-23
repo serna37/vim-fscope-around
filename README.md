@@ -45,9 +45,9 @@ let g:fscope_highlight_priority = 16
 let g:fscope_around_row = 5
 " active on start vim (default 1)
 let g:fscope_init_active = 1
-" lazy mode (default 1) -> highlight disappear 3 sec after cursor moved
+" lazy mode (default 1) -> highlight disappear 2 sec after cursor moved
 let g:fscope_lazy_mode = 1
-" highlight disappear time (default 3 sec)
+" highlight disappear time (default 2 sec)
 let g:fscope_lazy_time = 2000
 
 " color
