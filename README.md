@@ -4,9 +4,16 @@ inspired by [quick-scope](https://github.com/unblevable/quick-scope).
 Highlight `f-char` not only current row, around row
 ![around-demo.gif](./around-demo.gif)
 
+And lazy mode, disappear highlight 2 sec after cursor moved by default.
+![lazy_demo](./lazy_scope_demo.gif)
+
 After `H` `M` `L` `5 row move`, target char must be highlighted.
 ![usage.gif](./usage.gif)
 with [vim-anchor5](https://github.com/serna37/vim-anchor5), [clever-f](https://github.com/rhysd/clever-f.vim)
+
+Provide smooth cursor move with also edgemotion
+![fscope_anchor5_edgemotion](./fscope_anchor5_edgemotion.gif)
+with [vim-anchor5](https://github.com/serna37/vim-anchor5), [edgemotion](https://github.com/haya14busa/vim-edgemotion), [clever-f](https://github.com/rhysd/clever-f.vim)
 
 # installation
 ```vim
@@ -41,7 +48,7 @@ let g:fscope_init_active = 1
 " lazy mode (default 1) -> highlight disappear 3 sec after cursor moved
 let g:fscope_lazy_mode = 1
 " highlight disappear time (default 3 sec)
-let g:fscope_lazy_time = 3000
+let g:fscope_lazy_time = 2000
 
 " color
 hi FScopeCurrentRowPrimary ctermfg=204 cterm=underline

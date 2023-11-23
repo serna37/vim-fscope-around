@@ -89,7 +89,7 @@ fu! s:fmode.exe() abort
     endfor
     if get(g:, 'fscope_lazy_mode', 1)
         cal timer_stop(s:tid)
-        let s:tid = timer_start(get(g:, 'fscope_lazy_time', 3000), {-> s:clearhi()})
+        let s:tid = timer_start(get(g:, 'fscope_lazy_time', 2000), {-> s:clearhi()})
     endif
 endf
 
