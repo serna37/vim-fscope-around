@@ -38,6 +38,21 @@ let g:fscope_highlight_priority = 16
 let g:fscope_around_row = 5
 " active on start vim (default 1)
 let g:fscope_init_active = 1
+" lazy mode (default 1) -> highlight disappear 3 sec after cursor moved
+let g:fscope_lazy_mode = 1
+" highlight disappear time (default 3 sec)
+let g:fscope_lazy_time = 3000
+
+" color
+hi FScopeCurrentRowPrimary ctermfg=204 cterm=underline
+hi FScopeCurrentRowSecondary ctermfg=81 cterm=underline
+hi FScopeAround cterm=underline
+aug fmode_colors
+    au!
+    au ColorScheme * hi FScopeCurrentRowPrimary ctermfg=204 cterm=underline
+    au ColorScheme * hi FScopeCurrentRowSecondary ctermfg=81 cterm=underline
+    au ColorScheme * hi FScopeAround cterm=underline
+aug END
 ```
 # license
 [MIT](./LICENSE)

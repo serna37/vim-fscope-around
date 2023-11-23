@@ -74,8 +74,12 @@ fu! s:fmode.sethi(c_f, c_f2, is_current) abort
     endif
 endf
 
-fu! s:fmode.set() abort
+fu! s:clearhi() abort
     let _ = getmatches()->filter({_, v -> v.group =~ 'FScope.*'})->map({_, v -> matchdelete(v.id)})
+endf
+
+let s:tid = -1
+fu! s:fmode.exe() abort
     let current_row = line('.')
     let col = col('.')
     let rows = get(g:, 'fscope_around_row', 5)
@@ -83,6 +87,33 @@ fu! s:fmode.set() abort
         let target_row_no = current_row + idx
         cal self.scope(current_row, col, target_row_no, getline(target_row_no))
     endfor
+    if get(g:, 'fscope_lazy_mode', 1)
+        cal timer_stop(s:tid)
+        let s:tid = timer_start(get(g:, 'fscope_lazy_time', 3000), {-> s:clearhi()})
+    endif
+endf
+
+fu! s:fmode.set() abort
+    cal s:clearhi()
+    cal self.exe()
+endf
+
+let s:prev_bt = -1
+fu! s:fmode.winleave() abort
+    let s:prev_bt = &bt
+endf
+
+fu! s:fmode.winenter() abort
+    let is_clear_windo = s:prev_bt != 'popup'
+    let is_clear_windo = is_clear_windo && s:prev_bt != 'terminal'
+    let is_clear_windo = is_clear_windo && &bt != 'popup'
+    let is_clear_windo = is_clear_windo && &bt != 'terminal'
+    if is_clear_windo
+        let current_win = win_getid()
+        windo cal getmatches()->filter({_, v -> v.group =~ 'FScope.*'})->map('execute("cal matchdelete(v:val.id)")')
+        cal win_gotoid(current_win)
+    endif
+    cal self.exe()
 endf
 
 fu! s:fmode.activate() abort
@@ -90,6 +121,8 @@ fu! s:fmode.activate() abort
     aug f_scope
         au!
         au CursorMoved * cal s:fmode.set()
+        au WinLeave * cal s:fmode.winleave()
+        au WinEnter * cal s:fmode.winenter()
     aug End
     cal self.set()
 endf
