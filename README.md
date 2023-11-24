@@ -41,7 +41,7 @@ overrite in your `.vimrc`
 ```vim
 " highlight priority (default 16)
 let g:fscope_highlight_priority = 16
-" target range (default 5)
+" target range (default 5) 0 = only current row
 let g:fscope_around_row = 5
 " active on start vim (default 1)
 let g:fscope_init_active = 1
