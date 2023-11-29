@@ -4,7 +4,7 @@ inspired by [quick-scope](https://github.com/unblevable/quick-scope).
 Highlight `f-char` not only current row, around row
 ![around-demo.gif](./around-demo.gif)
 
-And lazy mode, disappear highlight 2 sec after cursor moved by default.
+And lazy mode, disappear highlight 1 sec after cursor moved by default.
 ![lazy_demo](./lazy_scope_demo.gif)
 
 After `H` `M` `L` `5 row move`, target char must be highlighted.
@@ -48,7 +48,7 @@ let g:fscope_init_active = 1
 " lazy mode (default 1) -> highlight disappear 2 sec after cursor moved
 let g:fscope_lazy_mode = 1
 " highlight disappear time (default 2 sec)
-let g:fscope_lazy_time = 2000
+let g:fscope_lazy_time = 1000
 
 " color
 hi FScopeCurrentRowPrimary ctermfg=204 cterm=underline
