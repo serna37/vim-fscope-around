@@ -3,11 +3,11 @@ if execute('sil! hi FScopeCurrentRowPrimary') =~ 'E411'
         au!
         au ColorScheme * hi FScopeCurrentRowPrimary ctermfg=204 cterm=underline
         au ColorScheme * hi FScopeCurrentRowSecondary ctermfg=81 cterm=underline
-        au ColorScheme * hi FScopeAround cterm=underline
+        au ColorScheme * hi FScopeAround cterm=BOLD
     aug END
     hi FScopeCurrentRowPrimary ctermfg=204 cterm=underline
     hi FScopeCurrentRowSecondary ctermfg=81 cterm=underline
-    hi FScopeAround cterm=underline
+    hi FScopeAround cterm=BOLD
 endif
 
 
