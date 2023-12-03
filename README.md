@@ -51,13 +51,13 @@ let g:fscope_lazy_mode = 1
 let g:fscope_lazy_time = 1000
 
 " color
-hi FScopeCurrentRowPrimary ctermfg=204 cterm=BOLD
-hi FScopeCurrentRowSecondary ctermfg=81 cterm=BOLD
+hi FScopeCurrentRowPrimary ctermfg=204 cterm=underline
+hi FScopeCurrentRowSecondary ctermfg=81 cterm=underline
 hi FScopeAround cterm=BOLD
 aug fmode_colors
     au!
-    au ColorScheme * hi FScopeCurrentRowPrimary ctermfg=204 cterm=BOLD
-    au ColorScheme * hi FScopeCurrentRowSecondary ctermfg=81 cterm=BOLD
+    au ColorScheme * hi FScopeCurrentRowPrimary ctermfg=204 cterm=underline
+    au ColorScheme * hi FScopeCurrentRowSecondary ctermfg=81 cterm=underline
     au ColorScheme * hi FScopeAround cterm=BOLD
 aug END
 ```
