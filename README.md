@@ -47,18 +47,18 @@ let g:fscope_around_row = 5
 let g:fscope_init_active = 1
 " lazy mode (default 1) -> highlight disappear 2 sec after cursor moved
 let g:fscope_lazy_mode = 1
-" highlight disappear time (default 2 sec)
+" highlight disappear time (default 3 sec)
 let g:fscope_lazy_time = 1000
 
 " color
 hi FScopeCurrentRowPrimary ctermfg=204 cterm=BOLD
 hi FScopeCurrentRowSecondary ctermfg=81 cterm=BOLD
-hi FScopeAround cterm=BOLD
+hi FScopeAround cterm=BOLD ctermbg=236
 aug fmode_colors
     au!
     au ColorScheme * hi FScopeCurrentRowPrimary ctermfg=204 cterm=BOLD
     au ColorScheme * hi FScopeCurrentRowSecondary ctermfg=81 cterm=BOLD
-    au ColorScheme * hi FScopeAround cterm=BOLD
+    au ColorScheme * hi FScopeAround cterm=BOLD ctermbg=236
 aug END
 ```
 # license
