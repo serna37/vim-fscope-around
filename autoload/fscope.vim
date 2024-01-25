@@ -7,7 +7,7 @@ if execute('sil! hi FScopeCurrentRowPrimary') =~ 'E411'
     aug END
     hi FScopeCurrentRowPrimary ctermfg=204 cterm=BOLD
     hi FScopeCurrentRowSecondary ctermfg=81 cterm=BOLD
-    hi FScopeAround cterm=BOLD ctermbg=237
+    hi FScopeAround cterm=BOLD
 endif
 
 
