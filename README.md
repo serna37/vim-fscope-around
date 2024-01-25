@@ -58,7 +58,7 @@ aug fmode_colors
     au!
     au ColorScheme * hi FScopeCurrentRowPrimary ctermfg=204 cterm=BOLD
     au ColorScheme * hi FScopeCurrentRowSecondary ctermfg=81 cterm=BOLD
-    au ColorScheme * hi FScopeAround cterm=BOLD ctermbg=236
+    au ColorScheme * hi FScopeAround cterm=BOLD
 aug END
 ```
 # license
