@@ -41,8 +41,8 @@ overrite in your `.vimrc`
 ```vim
 " highlight priority (default 16)
 let g:fscope_highlight_priority = 16
-" target range (default 5) 0 = only current row
-let g:fscope_around_row = 5
+" target range (default 1) 0 = only current row
+let g:fscope_around_row = 1
 " active on start vim (default 1)
 let g:fscope_init_active = 1
 " lazy mode (default 1) -> highlight disappear 2 sec after cursor moved
@@ -53,12 +53,12 @@ let g:fscope_lazy_time = 1000
 " color
 hi FScopeCurrentRowPrimary ctermfg=204 cterm=BOLD
 hi FScopeCurrentRowSecondary ctermfg=81 cterm=BOLD
-hi FScopeAround cterm=BOLD ctermbg=236
+hi FScopeAround ctermfg=81 cterm=BOLD
 aug fmode_colors
     au!
     au ColorScheme * hi FScopeCurrentRowPrimary ctermfg=204 cterm=BOLD
     au ColorScheme * hi FScopeCurrentRowSecondary ctermfg=81 cterm=BOLD
-    au ColorScheme * hi FScopeAround cterm=BOLD
+    au ColorScheme * hi FScopeAround ctermfg=81 cterm=BOLD
 aug END
 ```
 # license

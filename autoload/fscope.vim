@@ -3,11 +3,11 @@ if execute('sil! hi FScopeCurrentRowPrimary') =~ 'E411'
         au!
         au ColorScheme * hi FScopeCurrentRowPrimary ctermfg=204 cterm=BOLD
         au ColorScheme * hi FScopeCurrentRowSecondary ctermfg=81 cterm=BOLD
-        au ColorScheme * hi FScopeAround cterm=BOLD ctermbg=236
+        au ColorScheme * hi FScopeAround ctermfg=81 cterm=BOLD
     aug END
     hi FScopeCurrentRowPrimary ctermfg=204 cterm=BOLD
     hi FScopeCurrentRowSecondary ctermfg=81 cterm=BOLD
-    hi FScopeAround cterm=BOLD
+    hi FScopeAround ctermfg=81 cterm=BOLD
 endif
 
 
@@ -82,7 +82,7 @@ let s:tid = -1
 fu! s:fmode.exe() abort
     let current_row = line('.')
     let col = col('.')
-    let rows = get(g:, 'fscope_around_row', 5)
+    let rows = get(g:, 'fscope_around_row', 1)
     for idx in range(-rows, rows)
         let target_row_no = current_row + idx
         cal self.scope(current_row, col, target_row_no, getline(target_row_no))
